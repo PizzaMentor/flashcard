@@ -8,12 +8,11 @@ export const quizzesSlice = createSlice ({
   reducers: {
     addQuiz: (state, action) => {
         const {id} = action.payload;
-        state.quizzes[id] = act.payload;
+        state.quizzes[id] = action.payload;
         }
     }
   });
  
-
+export default quizzesSlice.reducer;
 export const selectQuizzes = (state) => state.quizzes.quizzes;
 export const { addQuiz } = quizzesSlice.actions;
-export default quizzesSlice.reducer;
