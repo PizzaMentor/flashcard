@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { ALL_ICONS } from "../data/icons";
 // import addTopic
-import { addTopic } from "../features/topics/topicsSlice";
+import { addTopic } from "../features/topics/topicsSlice.js";
 
 export default function NewTopicForm() {
   const dispatch = useDispatch();
@@ -19,8 +19,15 @@ export default function NewTopicForm() {
       return;
     }
 
+    // prepare the payload
+    // const newTopic = { id: uuidv4(), name, icon };
+
+    // log the payload to the console
+    //console.log("Dispatching addTopic with payload", newTopic);
+
     // dispatch new topic
-    dispatch(addTopic({name: name, id: uuidv4(), icon }));
+    dispatch(addTopic({ id: uuidv4(), name, icon }));
+
     navigate(ROUTES.topicsRoute());
   };
 
